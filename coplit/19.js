@@ -15,14 +15,17 @@ function decryptCaesarCipher(str, secret) {
   for (let i = 0; i < str.length; i++) {
     idx = alphabet.indexOf(str[i]);
 
-
+// str[i] 공백일 경우 result에 공백 추가 continue
     if (str[i] === ' ') {
       result += ' ';
       continue;
     }
 
+// idx가 secret보다 클 경우 복호화
     if (idx < secret) {
-      result += alphabet[26 + (i - secret)];
+      result += alphabet[26 + (idx - secret)];
+
+//그 외 복호화
     } else {
         result += alphabet[idx - secret];
     }
@@ -33,4 +36,4 @@ function decryptCaesarCipher(str, secret) {
 
 
 let output = decryptCaesarCipher('mnv xnt zqd qdzcx sn lnud sn hlldqrhud bntqrd', 25);
-console.log(output); // --> hello
+console.log(output); // 'now you are ready to move to immersive course'
