@@ -1,0 +1,20 @@
+// 제곱근을 이용해서 기존 풀이보다 최적화된 풀이
+
+function solution(n) {
+    let result = 0;
+    const sqrtOfN = Math.sqrt(n)
+
+    for(let i = 1; i <= sqrtOfN; i++){
+        
+        if(n % i === 0){
+            result += i
+            // 중복으로 값이 들어가는 것을 방지
+            if(n / i !== i){ 
+                result += (n / i)
+            }
+        }
+    }
+    return result
+}
+
+console.log(solution(100))
