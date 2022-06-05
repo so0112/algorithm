@@ -1,23 +1,25 @@
 // isPrime 함수 만들기
 // filter로 거르기
 
-function isPrime(x) {
-  let   sqrt = Math.sqrt(x);
-
-  for (let i = 2; i <= sqrt; i++) {
-    if (x % i === 0) {
-      return false;
+let isPrime = function(x) {
+    
+    let   sqrt = Math.sqrt(x);
+  
+    for (let i = 2; i <= sqrt; i++) {
+      if (x % i === 0) {
+        return false;
+      }
     }
+    return true;
   }
-  return true;
-}
-
-function solution(n) {
-  let   arr = [];
-
-  for (let i = 2; i <= n; i++) {
-    arr.push(i);
+  
+  function solution(n) {
+    let   arr = [2];
+  
+    for (let i = 3; i <= n; i += 2) {
+      arr.push(i);
+    }
+    arr = arr.filter((el) => {return isPrime(el) === true});
+    return arr.length;
   }
-  arr = arr.filter((el) => isPrime(el) === true);
-  return arr.length;
-}
+  
