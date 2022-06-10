@@ -5,29 +5,27 @@
 // str의 마지막문자열은 비교할 대상이 없기 때문에 i <= str.length로 마지막 문자열 비교가능하도록 설정
 
 function compressString(str) {
-    // TODO: 여기에 코드를 작성합니다.
-  
-    let before = str[0]
-    let cnt = 1;
-    let result = '';
-  
-    for (let i = 1; i <= str.length; i++){
-      
-      if(before == str[i]){
-        cnt++;
+  // TODO: 여기에 코드를 작성합니다.
+
+  let before = str[0];
+  let cnt = 1;
+  let result = "";
+
+  for (let i = 1; i <= str.length; i++) {
+    if (before == str[i]) {
+      cnt++;
+    } else {
+      if (cnt >= 3) {
+        result += cnt + before;
       } else {
-        if(cnt >= 3){
-          result += cnt + before;
-        }else{
-          result += before.repeat(cnt);
-        }
-  
+        result += before.repeat(cnt);
+      }
       before = str[i];
       cnt = 1;
-      }
     }
-    return result;
   }
-  
-  let output = compressString('dsafdasfffffsgaaaaabbbscccdd');
-  console.log(output);
+  return result;
+}
+
+let output = compressString("dsafdasfffffsgaaaaabbbscccdd");
+console.log(output);
