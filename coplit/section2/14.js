@@ -11,4 +11,4 @@ function superIncreasing(arr) {
     return true;
 }
   
-  
+console.log(superIncreasing([1, 2, 3, 5, 10, 20, 30]))
