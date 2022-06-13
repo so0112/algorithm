@@ -28,3 +28,14 @@ function readVertically(arr) {
   ];
   output = readVertically(input);
   console.log(output); // --> 'hwiolrd'
+
+  // 단계별 과정
+  // len = 0, i = 0, j = 0 [h]
+  // len = 1, i = 0, j = 1 [h, i]
+  // len = 1, i = 1, j = 0 [hw, i]
+  // len = 2, i = 1, j = 1 [hw, io]
+  // len = 2, i = 1, j = 2 [hw, io, l]
+  // len = 3, i = 1, j = 3 [hw, io, l, r]
+  // len = 4, i = 1, j = 4 [hw, io, l, r, d]
+
+  //join 'hwiolrd'
