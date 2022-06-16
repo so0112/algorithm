@@ -3,15 +3,16 @@
 
 function isIsogram(str) {
     // TODO: 여기에 코드를 작성합니다.
-  
-    let lower = str.toLowerCase()
-    for (let i = 0; i < lower.length; i++){
-      for(let j = i + 1; j < lower.length; j++){
-        if(lower[i] === lower[j]){
-          return false;
-        }
-      }
+  let cache = {}
+  let lower = str.toLowerCase();
+
+  for (let i = 0; i < str.length; i++){
+    if (cache[lower[i]]){
+        return false;
     }
-    return true;
+    cache[lower[i]] = true;
+  }
+
+  return true
   }
   
