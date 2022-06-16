@@ -1,20 +1,12 @@
 function solution(sizes) {
-    let answer = 0;
-    let width = 0;
-    let height = 0;
+    let arr = sizes.map(el => el.sort((a, b) => b - a));
+    let width = Math.max(...arr.map(el => el[0]));
+    let height = Math.max(...arr.map(el => el[1]));
+    
+    return width * height  
+}
 
-    for (let arr of sizes) {
-     
-        const numA = arr[0] < arr[1] ? arr[1] : arr[0];
-        const numB = arr[0] < arr[1] ? arr[0] : arr[1];
-        console.log([numA, numB])
-        width = width < numA ? numA : width;
-        height = height < numB ? numB : height;
-    }
-   
-    answer = width * height;
 
-    return ([width, height, answer])
 }
 
 console.log(solution([[10,30], [20, 30], [40, 50], [15, 10], [20, 5]]))
